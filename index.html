@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lu Babani • Senior Technology Program Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #162040;
+    --navy-light: #1e2d50;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-pale: #f5e9c8;
+    --warm-white: #faf8f3;
+    --cream: #f0ece0;
+    --text-dark: #0a1628;
+    --text-mid: #3a4a6b;
+    --text-light: #8a94aa;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── CURSOR ── */
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s, opacity 0.2s;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.12s ease-out, width 0.2s, height 0.2s, opacity 0.2s;
+    opacity: 0.5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(10, 22, 40, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem; font-weight: 500;
+    color: rgba(250,248,243,0.7);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-lines {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 80px),
+      repeating-linear-gradient(0deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 80px);
+    pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute; bottom: -200px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 40px; height: 1px;
+    background: var(--gold);
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1.05;
+    margin-bottom: 0.3rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    color: rgba(250,248,243,0.6);
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    color: rgba(250,248,243,0.65);
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 0.85rem 2rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-ghost {
+    padding: 0.85rem 2rem;
+    background: transparent;
+    color: var(--warm-white);
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid rgba(250,248,243,0.25);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+  /* hero photo side */
+  .hero-visual {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .photo-frame {
+    position: relative;
+    width: 380px; height: 480px;
+  }
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    top: 20px; right: -20px;
+    width: 100%; height: 100%;
+    border: 1.5px solid rgba(201,168,76,0.35);
+    pointer-events: none;
+  }
+  .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(20%);
+  }
+  .photo-badge {
+    position: absolute;
+    bottom: -24px; left: -24px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 1.2rem 1.5rem;
+  }
+  .photo-badge .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 700;
+    line-height: 1;
+  }
+  .photo-badge .label {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  /* hero stats */
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    margin-top: 3rem;
+  }
+  .stat-item {
+    padding: 1.5rem 1rem;
+    border-right: 1px solid rgba(201,168,76,0.15);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.68rem; font-weight: 500;
+    color: rgba(250,248,243,0.5);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.25em; text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block; width: 30px; height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--warm-white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+    margin-top: 3rem;
+  }
+  .about-text p {
+    font-size: 1rem; line-height: 1.85;
+    color: var(--text-mid);
+    margin-bottom: 1.2rem;
+  }
+  .about-text p strong { color: var(--navy); }
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .skill-tag {
+    padding: 0.7rem 1rem;
+    background: var(--navy);
+    color: rgba(250,248,243,0.8);
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.06em;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--cream); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5px;
+    margin-top: 3rem;
+    background: rgba(10,22,40,0.1);
+  }
+  .project-card {
+    background: var(--warm-white);
+    padding: 2.5rem;
+    cursor: pointer;
+    transition: background 0.25s;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    border: none;
+    outline: none;
+  }
+  .project-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .project-card:hover { background: var(--navy); }
+  .project-card:hover::after { transform: scaleX(1); }
+  .project-card:hover .proj-company,
+  .project-card:hover .proj-title,
+  .project-card:hover .proj-desc,
+  .project-card:hover .proj-period { color: rgba(250,248,243,0.85) !important; }
+  .project-card:hover .proj-company { color: var(--gold-light) !important; }
+  .project-card:hover .proj-tag { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+  .project-card:hover .proj-arrow { color: var(--gold); }
+  .project-card:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  .proj-company {
+    font-size: 0.7rem; font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    transition: color 0.25s;
+  }
+  .proj-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    transition: color 0.25s;
+  }
+  .proj-desc {
+    font-size: 0.85rem; line-height: 1.7;
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+    transition: color 0.25s;
+  }
+  .proj-metrics {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .proj-metric {
+    text-align: center;
+  }
+  .proj-metric .m-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .proj-metric .m-label {
+    font-size: 0.6rem; font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+  }
+  .proj-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .proj-tag {
+    padding: 0.25rem 0.7rem;
+    background: rgba(10,22,40,0.07);
+    font-size: 0.68rem; font-weight: 500;
+    color: var(--text-mid);
+    letter-spacing: 0.05em;
+    transition: background 0.25s, color 0.25s;
+  }
+  .proj-period {
+    font-size: 0.72rem; color: var(--text-light);
+    transition: color 0.25s;
+  }
+  .proj-arrow {
+    position: absolute; top: 2.5rem; right: 2.5rem;
+    font-size: 1.4rem; color: var(--text-light);
+    transition: color 0.25s, transform 0.25s;
+  }
+  .project-card:hover .proj-arrow { transform: translate(3px, -3px); }
+
+  /* ── IMPACT CALCULATOR ── */
+  #impact {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  #impact .section-title { color: var(--warm-white); }
+  #impact .section-label::before { background: var(--gold); }
+  .impact-intro {
+    font-size: 0.95rem; color: rgba(250,248,243,0.6);
+    max-width: 600px; line-height: 1.7; margin-bottom: 3rem;
+  }
+  .calc-container {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: start;
+  }
+  .calc-controls { display: flex; flex-direction: column; gap: 2rem; }
+  .calc-slider-group label {
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem; font-weight: 500;
+    color: rgba(250,248,243,0.7);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.8rem;
+  }
+  .calc-slider-group label span {
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+  input[type=range].gold-range {
+    -webkit-appearance: none;
+    width: 100%; height: 2px;
+    background: rgba(201,168,76,0.2);
+    outline: none;
+    border-radius: 0;
+  }
+  input[type=range].gold-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    background: var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--navy);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  input[type=range].gold-range::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, var(--gold) 0%, var(--gold) var(--pct, 50%), rgba(201,168,76,0.2) var(--pct, 50%));
+    height: 2px;
+  }
+  .calc-results { display: flex; flex-direction: column; gap: 1.5rem; }
+  .result-card {
+    background: rgba(250,248,243,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .result-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--gold);
+  }
+  .result-label {
+    font-size: 0.68rem; font-weight: 600;
+    color: rgba(250,248,243,0.45);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .result-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .result-sub {
+    font-size: 0.75rem; color: rgba(250,248,243,0.45);
+    margin-top: 0.3rem;
+  }
+  .impact-quote {
+    margin-top: 3rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding-top: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-style: italic;
+    color: rgba(250,248,243,0.55);
+    max-width: 700px;
+  }
+  .impact-quote strong { color: var(--gold-light); font-style: normal; }
+
+  /* ── EXPERIENCE TIMELINE ── */
+  #experience { background: var(--warm-white); }
+  .timeline { margin-top: 3rem; position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .timeline-item {
+    padding: 0 0 3.5rem 3rem;
+    position: relative;
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot {
+    position: absolute; left: -6px; top: 6px;
+    width: 13px; height: 13px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 2px solid var(--warm-white);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .tl-period {
+    font-size: 0.7rem; font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .tl-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+  .tl-role {
+    font-size: 0.85rem; color: var(--text-mid);
+    margin-bottom: 0.8rem;
+  }
+  .tl-points {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .tl-points li {
+    font-size: 0.85rem; color: var(--text-mid);
+    padding-left: 1rem; position: relative; line-height: 1.6;
+  }
+  .tl-points li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--gold);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  #contact .section-title { color: var(--warm-white); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; margin-top: 3rem; align-items: start;
+  }
+  .contact-info p {
+    font-size: 0.95rem; color: rgba(250,248,243,0.6);
+    line-height: 1.8; margin-bottom: 2rem;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(201,168,76,0.2);
+    color: rgba(250,248,243,0.75);
+    font-size: 0.85rem;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .contact-link:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    background: rgba(201,168,76,0.05);
+  }
+  .contact-link .cl-icon {
+    width: 36px; height: 36px;
+    background: rgba(201,168,76,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background: rgba(250,248,243,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--warm-white);
+    padding: 0.9rem 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: rgba(250,248,243,0.35); }
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--gold); }
+  .contact-form textarea { min-height: 120px; }
+  .form-note {
+    font-size: 0.75rem; color: rgba(250,248,243,0.4);
+    margin-top: -0.5rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 2rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--gold-light);
+  }
+  .footer-copy {
+    font-size: 0.72rem; color: rgba(250,248,243,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── PROJECT MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(10, 22, 40, 0.72);
+    backdrop-filter: blur(3px);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 6rem 1.5rem 3rem;
+    overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--warm-white);
+    max-width: 680px; width: 100%;
+    position: relative;
+    padding: 3rem;
+    animation: modalIn 0.25s ease;
+    border-top: 3px solid var(--gold);
+  }
+  @keyframes modalIn { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
+  @media (max-width: 640px) { .modal-box { padding: 2rem 1.5rem; } .modal-overlay { padding: 5.5rem 0.8rem 2rem; } }
+  .modal-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(10,22,40,0.15);
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text-mid);
+    font-size: 1.1rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .modal-close:hover { border-color: var(--gold); color: var(--gold); }
+  .modal-company {
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    padding-right: 2.5rem;
+  }
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+    padding-right: 2rem;
+  }
+  .modal-location {
+    font-size: 0.78rem; color: var(--text-light);
+    margin-bottom: 1.6rem;
+  }
+  .modal-metrics {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    padding: 1.4rem 0; margin-bottom: 1.6rem;
+    border-top: 1px solid rgba(10,22,40,0.1);
+    border-bottom: 1px solid rgba(10,22,40,0.1);
+  }
+  .modal-metric .m-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 700;
+    color: var(--gold); line-height: 1;
+  }
+  .modal-metric .m-label {
+    font-size: 0.62rem; font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    display: block; margin-top: 0.3rem;
+  }
+  .modal-desc {
+    font-size: 0.95rem; line-height: 1.8;
+    color: var(--text-mid);
+    margin-bottom: 1.8rem;
+  }
+  .modal-sub {
+    font-size: 0.68rem; font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .modal-achievements {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    margin-bottom: 1.8rem;
+  }
+  .modal-achievements li {
+    font-size: 0.88rem; color: var(--text-mid);
+    padding-left: 1.1rem; position: relative; line-height: 1.65;
+  }
+  .modal-achievements li::before {
+    content: '—'; position: absolute; left: 0; color: var(--gold);
+  }
+  .modal-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+    .hero-visual { display: none; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .calc-container, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .photo-frame { width: 280px; height: 340px; }
+  }
+
+  /* ── MOBILE NAV TOGGLE ── */
+  .nav-toggle {
+    display: none;
+    background: none; border: none;
+    color: var(--warm-white); cursor: pointer;
+    font-size: 1.4rem;
+  }
+  @media (max-width: 900px) { .nav-toggle { display: block; } }
+
+  /* ── ANIMATED COUNTER ── */
+  @keyframes countUp { from { opacity: 0; } to { opacity: 1; } }
+
+  /* section divider */
+  .divider {
+    width: 60px; height: 2px;
+    background: var(--gold);
+    margin: 1rem 0 2rem;
+  }
+
+  /* skill categories */
+  .skill-category {
+    margin-bottom: 2rem;
+  }
+  .skill-category-title {
+    font-size: 0.68rem; font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Lu Babani</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">☰</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">Senior Technology Program Manager</div>
+    <h1 class="hero-name">
+      Lucilandia<br><em>Babani</em>
+    </h1>
+    <p class="hero-title">Program Leader · Product Strategist · Global Delivery</p>
+    <p class="hero-desc">
+      15+ years turning complex, ambiguous technology programs into measurable outcomes across healthcare, finance, automotive, and energy sectors, on three continents.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="#contact" class="btn-ghost">Let's Talk</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-count="15">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="250">0</div>
+        <div class="stat-label">Engineers Led</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$480K</div>
+        <div class="stat-label">Cost Savings Identified</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="9">0</div>
+        <div class="stat-label">Top Projects Delivered</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="photo-frame">
+      <img src="Lu_Babani_PM2.png" alt="Lucilandia Babani • Senior Technology Program Manager">
+      <div class="photo-badge">
+        <div class="num">3</div>
+        <div class="label">Continents</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Me</div>
+  <h2 class="section-title">Where business strategy<br>meets <em>technical execution</em></h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm <strong>Lucilandia Babani</strong> a Senior Technology Program Manager with 15+ years of experience leading people, navigating complexity, and delivering initiatives that actually move the needle.
+      </p>
+      <p>
+        My career spans digital transformation within China's manufacturing ecosystem, product development for integrated healthcare and fintech platforms across Brazil and the USA, and currently leading a <strong>multinational software modernization program</strong> at CDK Global, one of the world's largest automotive technology companies.
+      </p>
+      <p>
+        I've sat at every seat at the delivery table: product owner, scrum master, business analyst, UX designer, frontend developer, and program leader. That breadth gives me the credibility to <strong>earn trust at every level</strong> from engineers to C-suite.
+      </p>
+      <p>
+        Fluent in <strong>Portuguese, English</strong>, conversational in Spanish, and learning German. Based in Hyderabad, India. Open to relocate.
+      </p>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s">
+      <div class="skill-category">
+        <div class="skill-category-title">Program & Delivery</div>
+        <div class="skills-grid">
+          <div class="skill-tag">Enterprise Governance</div>
+          <div class="skill-tag">SAFe / Scrum</div>
+          <div class="skill-tag">Risk Mitigation</div>
+          <div class="skill-tag">OKRs & KPIs</div>
+          <div class="skill-tag">Budget Management</div>
+          <div class="skill-tag">Release Management</div>
+        </div>
+      </div>
+      <div class="skill-category" style="margin-top:1.5rem">
+        <div class="skill-category-title">Business & Strategy</div>
+        <div class="skills-grid">
+          <div class="skill-tag">Stakeholder Mgmt</div>
+          <div class="skill-tag">Requirements Eng.</div>
+          <div class="skill-tag">Business Analysis</div>
+          <div class="skill-tag">Power BI</div>
+        </div>
+      </div>
+      <div class="skill-category" style="margin-top:1.5rem">
+        <div class="skill-category-title">Regulated Industries</div>
+        <div class="skills-grid">
+          <div class="skill-tag">Healthcare IT</div>
+          <div class="skill-tag">HIPAA / LGPD</div>
+          <div class="skill-tag">ISO 27001</div>
+          <div class="skill-tag">Fintech / ANVISA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Portfolio</div>
+  <h2 class="section-title">Projects that <em>shaped industries</em></h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+
+    <button type="button" class="project-card reveal" data-project="cdk" title="CDK Global DMS Modernization">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">CDK Global · 2025–Present</div>
+      <h3 class="proj-title">DMS Modernization</h3>
+      <p class="proj-desc">Leading the most complex technology transformation in automotive software migrating CDK's legacy Dealer Management System to a modular, microservices-based platform across 250+ engineers in 3 countries.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">$480K</div><div class="m-label">Cost Savings</div></div>
+        <div class="proj-metric"><div class="m-num">+32%</div><div class="m-label">Productivity</div></div>
+        <div class="proj-metric"><div class="m-num">250+</div><div class="m-label">Engineers</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">SAFe</span>
+        <span class="proj-tag">Enterprise Governance</span>
+        <span class="proj-tag">Power BI</span>
+        <span class="proj-tag">AI Adoption</span>
+      </div>
+      <div class="proj-period">Hyderabad · USA · Taiwan</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="aente-ehr" style="transition-delay:0.08s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">Aente Health · 2020–2023</div>
+      <h3 class="proj-title">Encrypted Medical Record Platform</h3>
+      <p class="proj-desc">Designed and governed a fully compliant EHR system meeting 5 regulatory frameworks simultaneously deployed across 38 healthcare facilities in Brazil with zero compliance violations at rollout.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">38</div><div class="m-label">Facilities</div></div>
+        <div class="proj-metric"><div class="m-num">5</div><div class="m-label">Frameworks</div></div>
+        <div class="proj-metric"><div class="m-num">56</div><div class="m-label">Integrations</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">HIPAA</span>
+        <span class="proj-tag">LGPD</span>
+        <span class="proj-tag">ISO 27001</span>
+        <span class="proj-tag">EHR</span>
+      </div>
+      <div class="proj-period">USA · Brazil · Chile</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="teleport" style="transition-delay:0.12s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">Teleport LA · 2023–2024</div>
+      <h3 class="proj-title">Social Thrifting App (Series A)</h3>
+      <p class="proj-desc">Led the Brazil engineering team for a TikTok-meets-Depop startup driving 1-week sprints, managing a mid-delivery platform pivot from iOS app to web, and helping the company close a $10M Series A investment round.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">$10M</div><div class="m-label">Series A</div></div>
+        <div class="proj-metric"><div class="m-num">35K</div><div class="m-label">Users</div></div>
+        <div class="proj-metric"><div class="m-num">1wk</div><div class="m-label">Sprints</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">Social Commerce</span>
+        <span class="proj-tag">Startup Delivery</span>
+        <span class="proj-tag">Pivot Management</span>
+      </div>
+      <div class="proj-period">USA · Brazil (Remote)</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="neurolaudos" style="transition-delay:0.16s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">Neurolaudos · 2023–2024</div>
+      <h3 class="proj-title">Clinical Report SaaS Platform</h3>
+      <p class="proj-desc">Took a fragmented MVP to an investment-ready platform delivering V1 20% ahead of schedule, enabling a real-world pilot that secured R$3M in angel funding.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">R$3M</div><div class="m-label">Angel Round</div></div>
+        <div class="proj-metric"><div class="m-num">8mo</div><div class="m-label">vs 10 planned</div></div>
+        <div class="proj-metric"><div class="m-num">20%</div><div class="m-label">Early</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">Healthcare SaaS</span>
+        <span class="proj-tag">UX Redesign</span>
+        <span class="proj-tag">Investor-Ready</span>
+      </div>
+      <div class="proj-period">Brazil (Remote)</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="vortx" style="transition-delay:0.2s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">Vórtx Capital · 2020–2022</div>
+      <h3 class="proj-title">Tax Report UX Transformation</h3>
+      <p class="proj-desc">Solved a discoverability problem not a data one. Redesigned the investor tax report flow for Brazil's largest fixed-income fintech (R$1.7 trillion AUC). Result: 30,000 downloads in the first 10 days. MVP permanently adopted.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">30K</div><div class="m-label">Downloads in 10d</div></div>
+        <div class="proj-metric"><div class="m-num">R$1.7T</div><div class="m-label">Assets Under Custody</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">FinTech</span>
+        <span class="proj-tag">UX Strategy</span>
+        <span class="proj-tag">2-Month MVP</span>
+      </div>
+      <div class="proj-period">Brazil (Remote)</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="rtpcr" style="transition-delay:0.24s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">Testes Moleculares · 2020–2023</div>
+      <h3 class="proj-title">COVID Lab & Healthcare Platform</h3>
+      <p class="proj-desc">Built two integrated platforms in 14 months during peak pandemic automating 100% of manual lab processes, saving $90K/year in licensing, and reaching 10,000 users post-launch.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">$90K</div><div class="m-label">Yearly Savings</div></div>
+        <div class="proj-metric"><div class="m-num">10K</div><div class="m-label">Users</div></div>
+        <div class="proj-metric"><div class="m-num">100%</div><div class="m-label">Automated</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">HealthTech</span>
+        <span class="proj-tag">Automation</span>
+        <span class="proj-tag">COVID Response</span>
+      </div>
+      <div class="proj-period">Bahia, Brazil</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="globalreviews" style="transition-delay:0.28s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">Global Reviews · 2023–2024</div>
+      <h3 class="proj-title">Digital Intelligence Platform</h3>
+      <p class="proj-desc">Led the product transformation of Australia's most established digital benchmarking platform evolving it from a reporting tool into a predictive intelligence system serving 500+ global brands.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">500+</div><div class="m-label">Global Brands</div></div>
+        <div class="proj-metric"><div class="m-num">120K+</div><div class="m-label">Journeys Tracked</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">B2B SaaS</span>
+        <span class="proj-tag">AI Features</span>
+        <span class="proj-tag">Predictive Analytics</span>
+      </div>
+      <div class="proj-period">AU · EU · North America</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="bigdelivery" style="transition-delay:0.32s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">BigDelivery · 2023–2024</div>
+      <h3 class="proj-title">E-Commerce & Delivery Scale-Up</h3>
+      <p class="proj-desc">Restructured delivery process for a rapidly scaling Brazilian BBQ marketplace turning 35 story points per sprint into 56 with one extra team member, cutting stakeholder decision time by 70%.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">+60%</div><div class="m-label">Throughput</div></div>
+        <div class="proj-metric"><div class="m-num">70%</div><div class="m-label">Faster Decisions</div></div>
+        <div class="proj-metric"><div class="m-num">1→25</div><div class="m-label">Vendors</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">E-Commerce</span>
+        <span class="proj-tag">Process Design</span>
+        <span class="proj-tag">Scrum Master</span>
+      </div>
+      <div class="proj-period">Brazil (Remote)</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="aente-appt" style="transition-delay:0.36s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">Aente Health · 2021–2022</div>
+      <h3 class="proj-title">Appointment &amp; Teleconsultation App</h3>
+      <p class="proj-desc">Owned UX/UI and product for a real-time doctor booking and teleconsultation platform built in React and PHP on AWS/MongoDB, reaching 10,000 users shortly after launch.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">10K</div><div class="m-label">Users at Launch</div></div>
+        <div class="proj-metric"><div class="m-num">2</div><div class="m-label">Platforms</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">Telehealth</span>
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">PHP</span>
+      </div>
+      <div class="proj-period">Brazil</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="edtech" style="transition-delay:0.4s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">ThinkTech · 2020</div>
+      <h3 class="proj-title">EdTech Platform for School Continuity</h3>
+      <p class="proj-desc">Led implementation of a live-streaming, course management and dashboard platform that kept schools serving low-income communities running through COVID-19 lockdowns.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">3</div><div class="m-label">User Roles</div></div>
+        <div class="proj-metric"><div class="m-num">COVID</div><div class="m-label">Continuity Delivered</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">EdTech</span>
+        <span class="proj-tag">LMS</span>
+        <span class="proj-tag">Live Streaming</span>
+      </div>
+      <div class="proj-period">Brazil</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="homedecor" style="transition-delay:0.44s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">ThinkTech · 2020</div>
+      <h3 class="proj-title">Home Decor E-Commerce — US Launch</h3>
+      <p class="proj-desc">Ran project management, marketing and logistics for a US home decor client's e-commerce launch, integrating Amazon, Mercado Livre and Americanas with dynamic pricing.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">720%</div><div class="m-label">Traffic Growth</div></div>
+        <div class="proj-metric"><div class="m-num">120%</div><div class="m-label">Revenue Increase</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">E-Commerce</span>
+        <span class="proj-tag">Amazon</span>
+        <span class="proj-tag">Logistics</span>
+      </div>
+      <div class="proj-period">USA</div>
+    </button>
+
+    <button type="button" class="project-card reveal" data-project="ideal-brand" style="transition-delay:0.48s">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-company">I-Deal Group Asia · 2017–2020</div>
+      <h3 class="proj-title">Proprietary Digital Brand Launch</h3>
+      <p class="proj-desc">Conceived, built and launched the company's first proprietary e-commerce brand for the Chinese market, then scaled the model to 9 global brands across 1,500+ products.</p>
+      <div class="proj-metrics">
+        <div class="proj-metric"><div class="m-num">$6M</div><div class="m-label">Year-1 Revenue</div></div>
+        <div class="proj-metric"><div class="m-num">9</div><div class="m-label">Global Brands</div></div>
+        <div class="proj-metric"><div class="m-num">1,500+</div><div class="m-label">Products</div></div>
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">Brand Launch</span>
+        <span class="proj-tag">Digital Transformation</span>
+        <span class="proj-tag">Regulatory Affairs</span>
+      </div>
+      <div class="proj-period">Shenzhen, China</div>
+    </button>
+
+  </div>
+</section>
+
+<!-- IMPACT CALCULATOR -->
+<section id="impact">
+  <div class="section-label">Interactive</div>
+  <h2 class="section-title">Calculate my <em>impact</em> on your team</h2>
+  <div class="divider" style="background:var(--gold)"></div>
+  <p class="impact-intro">Slide the controls to explore how my experience and approach translate to outcomes for a team like yours.</p>
+  <div class="calc-container">
+    <div class="calc-controls">
+
+      <div class="calc-slider-group">
+        <label>Team Size <span id="lbl-team">20 engineers</span></label>
+        <input type="range" class="gold-range" id="sl-team" min="5" max="300" value="20" step="5">
+      </div>
+
+      <div class="calc-slider-group">
+        <label>Current Sprint Velocity (story pts) <span id="lbl-vel">35 pts</span></label>
+        <input type="range" class="gold-range" id="sl-vel" min="10" max="200" value="35" step="5">
+      </div>
+
+      <div class="calc-slider-group">
+        <label>Avg. Stakeholder Decision Time <span id="lbl-dec">7 days</span></label>
+        <input type="range" class="gold-range" id="sl-dec" min="1" max="20" value="7">
+      </div>
+
+      <div class="calc-slider-group">
+        <label>Number of Integrations / Dependencies <span id="lbl-int">50</span></label>
+        <input type="range" class="gold-range" id="sl-int" min="5" max="400" value="50" step="5">
+      </div>
+
+      <div class="calc-slider-group">
+        <label>Avg. Annual Engineer Cost (USD) <span id="lbl-cost">$80K</span></label>
+        <input type="range" class="gold-range" id="sl-cost" min="30000" max="200000" value="80000" step="5000">
+      </div>
+
+    </div>
+    <div class="calc-results">
+      <div class="result-card">
+        <div class="result-label">Projected Velocity Improvement</div>
+        <div class="result-value" id="r-vel">+21 pts/sprint</div>
+        <div class="result-sub">Based on avg. 60% throughput gain across past programs</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Decision Latency Reduction</div>
+        <div class="result-value" id="r-dec">5 days saved</div>
+        <div class="result-sub">70% faster stakeholder decisions (BigDelivery benchmark)</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Estimated Annual Cost Savings</div>
+        <div class="result-value" id="r-cost">$384K</div>
+        <div class="result-sub">Workforce optimisation & process efficiency</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Dependency Risk Reduction</div>
+        <div class="result-value" id="r-int">~35 blockers prevented</div>
+        <div class="result-sub">Cross-portfolio dependency management (CDK benchmark)</div>
+      </div>
+    </div>
+  </div>
+  <div class="impact-quote">
+    "The work that happens <strong>before</strong> development starts is what makes or breaks a regulated system."
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">15 years of <em>global delivery</em></h2>
+  <div class="divider"></div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="tl-period">Feb 2025 – Present</div>
+      <div class="tl-company">CDK Global Hyderabad, India</div>
+      <div class="tl-role">Senior Technology Program Manager</div>
+      <ul class="tl-points">
+        <li>Directing 250+ engineers across 16 teams in USA, India & Taiwan on mission-critical automotive DMS modernization</li>
+        <li>Identified $480K in cost savings through strategic workforce optimisation; projecting $2M for 2026</li>
+        <li>Drove 32% productivity uplift by rebuilding SAFe/Scrum discipline across 6 underperforming teams</li>
+        <li>Built Power BI dashboards enabling real-time executive decision-making across 3 regions</li>
+        <li>Managed 280+ system integrations across 8 portfolios, preventing cascading delivery blockers</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="tl-period">May 2023 – Jun 2024</div>
+      <div class="tl-company">Avantsoft Brazil (Remote)</div>
+      <div class="tl-role">Technology Project Manager | Product & Delivery</div>
+      <ul class="tl-points">
+        <li>Led global digital delivery programs for clients in Brazil, USA, Italy, and Australia</li>
+        <li>Increased sprint velocity ~25–30% within 3 sprints through Agile reset and team mentorship</li>
+        <li>Managed a high-stakes product pivot that contributed directly to client securing $10M Series A</li>
+        <li>Drove company's first UX research, achieving insights that retained a high-value client</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="tl-period">Jun 2020 – Jun 2023</div>
+      <div class="tl-company">ThinkTech Digital - USA | Brazil</div>
+      <div class="tl-role">Co-Founder | Head of Product & Technology Program Delivery</div>
+      <ul class="tl-points">
+        <li>Co-founded and scaled a tech consultancy delivering regulated platforms across Healthcare, Finance & Education</li>
+        <li>Delivered EHR platform across 38 facilities meeting HIPAA, LGPD, ANVISA, ISO 27001 & CFM/CRM simultaneously</li>
+        <li>Built clinical inventory management system reducing hospital supply waste by 30%</li>
+        <li>Shipped COVID-era education platform during peak pandemic for schools serving low-income communities</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="tl-period">Feb 2012 – May 2020</div>
+      <div class="tl-company">I-Deal Group Asia Ltd. — China</div>
+      <div class="tl-role">Senior Manager, Product & Digital Transformation</div>
+      <ul class="tl-points">
+        <li>8-year tenure leading international market expansion across Asia, North America & South America</li>
+        <li>Launched proprietary e-commerce platform in China market generating $6M in revenue over 5 years</li>
+        <li>Scaled global product portfolio to 9 brands and 1,500+ products across 8 international markets</li>
+        <li>Built and led 6 multinational teams across 5 countries</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's build something<br><em>exceptional</em> together</h2>
+  <div class="divider" style="background:var(--gold)"></div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>Whether you're scaling a complex program, navigating a regulated environment, or looking for a delivery leader who can operate at every level, let's talk.</p>
+      <div class="contact-links">
+        <a href="mailto:lucilandia.babani@gmail.com" class="contact-link">
+          <div class="cl-icon">✉</div>
+          <div>
+            <div style="font-weight:500; margin-bottom:0.2rem;">Email</div>
+            <div style="font-size:0.78rem; opacity:0.6;">lucilandia.babani@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/lubabani" target="_blank" class="contact-link">
+          <div class="cl-icon">in</div>
+          <div>
+            <div style="font-weight:500; margin-bottom:0.2rem;">LinkedIn</div>
+            <div style="font-size:0.78rem; opacity:0.6;">linkedin.com/in/lubabani</div>
+          </div>
+        </a>
+        <a href="https://wa.me/918977903264" target="_blank" class="contact-link">
+          <div class="cl-icon">✆</div>
+          <div>
+            <div style="font-weight:500; margin-bottom:0.2rem;">WhatsApp</div>
+            <div style="font-size:0.78rem; opacity:0.6;">+91 897 790 3264</div>
+          </div>
+        </a>
+        <a href="https://tinyurl.com/LuBabani" target="_blank" class="contact-link">
+          <div class="cl-icon">◈</div>
+          <div>
+            <div style="font-weight:500; margin-bottom:0.2rem;">Full Portfolio (Notion)</div>
+            <div style="font-size:0.78rem; opacity:0.6;">tinyurl.com/LuBabani</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleFormSubmit(event)">
+      <div class="form-row">
+        <input type="text" id="f-name" placeholder="Your Name" required>
+        <input type="email" id="f-email" placeholder="Your Email" required>
+      </div>
+      <input type="text" id="f-subject" placeholder="Subject / Company">
+      <textarea id="f-message" placeholder="Your message..." required></textarea>
+      <p class="form-note">This will open your default email client.</p>
+      <button type="submit" class="btn-primary" style="align-self:flex-start;">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Lu Babani</div>
+  <div class="footer-copy">© 2026 · Built with intention, not just a template ♥ · Hyderabad, India</div>
+</footer>
+
+<!-- PROJECT DETAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animCursor() {
+  rx += (mx - rx) * 0.15;
+  ry += (my - ry) * 0.15;
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a,button,input,textarea').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.width='6px'; cur.style.height='6px'; ring.style.width='50px'; ring.style.height='50px'; });
+  el.addEventListener('mouseleave', () => { cur.style.width='12px'; cur.style.height='12px'; ring.style.width='36px'; ring.style.height='36px'; });
+});
+
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+function animCount(el, target, suffix) {
+  let start = 0;
+  const duration = 1600;
+  const step = timestamp => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const val = Math.floor(progress * target);
+    el.textContent = val + (suffix||'');
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target + (suffix||'');
+  };
+  requestAnimationFrame(step);
+}
+const heroObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      document.querySelectorAll('[data-count]').forEach(el => {
+        animCount(el, parseInt(el.dataset.count), el.dataset.suffix||'+');
+      });
+      heroObs.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+heroObs.observe(document.getElementById('hero'));
+
+/* ── RANGE SLIDER TRACK FILL ── */
+function updateSlider(input) {
+  const min = +input.min, max = +input.max, val = +input.value;
+  const pct = ((val - min) / (max - min) * 100).toFixed(1) + '%';
+  input.style.setProperty('--pct', pct);
+}
+document.querySelectorAll('.gold-range').forEach(s => {
+  updateSlider(s);
+  s.addEventListener('input', () => updateSlider(s));
+});
+
+/* ── IMPACT CALCULATOR ── */
+function fmt(n) {
+  if(n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+  if(n >= 1000) return '$' + Math.round(n/1000) + 'K';
+  return n;
+}
+function calcImpact() {
+  const team = +document.getElementById('sl-team').value;
+  const vel  = +document.getElementById('sl-vel').value;
+  const dec  = +document.getElementById('sl-dec').value;
+  const intg = +document.getElementById('sl-int').value;
+  const cost = +document.getElementById('sl-cost').value;
+
+  document.getElementById('lbl-team').textContent = team + ' engineers';
+  document.getElementById('lbl-vel').textContent  = vel + ' pts';
+  document.getElementById('lbl-dec').textContent  = dec + ' days';
+  document.getElementById('lbl-int').textContent  = intg;
+  document.getElementById('lbl-cost').textContent = '$' + (cost/1000).toFixed(0) + 'K';
+
+  // Velocity: avg 60% improvement
+  const velGain = Math.round(vel * 0.60);
+  document.getElementById('r-vel').textContent = '+' + velGain + ' pts/sprint';
+
+  // Decision: 70% faster
+  const decSaved = (dec * 0.70).toFixed(1);
+  document.getElementById('r-dec').textContent = decSaved + ' days saved';
+
+  // Cost: ~6% workforce efficiency + 18% throughput equivalent
+  const costSaving = Math.round(team * cost * 0.048);
+  document.getElementById('r-cost').textContent = fmt(costSaving);
+
+  // Integrations: ~70% of integrations at risk, resolve 65%
+  const blocked = Math.round(intg * 0.70 * 0.65);
+  document.getElementById('r-int').textContent = '~' + blocked + ' blockers prevented';
+}
+document.querySelectorAll('.gold-range').forEach(s => s.addEventListener('input', calcImpact));
+calcImpact();
+
+/* ── CONTACT FORM ── */
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const name    = document.getElementById('f-name').value;
+  const email   = document.getElementById('f-email').value;
+  const subject = document.getElementById('f-subject').value || 'Portfolio Inquiry';
+  const message = document.getElementById('f-message').value;
+  const body = encodeURIComponent(
+    'Hi Lu,\n\nMy name is ' + name + '.\n\n' + message + '\n\nBest regards,\n' + name + '\n' + email
+  );
+  window.location.href = 'mailto:lucilandia.babani@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+}
+
+/* ── PROJECT DETAIL MODAL ── */
+const projectDetails = {
+  cdk: {
+    company: "CDK Global — Feb 2025 – Present",
+    title: "DMS Legacy System &amp; Integrations Modernization",
+    location: "Hyderabad, India · USA · Taiwan",
+    metrics: [["250+","Engineers Led"],["16","Teams / 3 Regions"],["$480K","Savings Identified"],["+32%","Program Productivity"]],
+    desc: "End-to-end ownership of India delivery for one of the most complex technology transformations in automotive software — migrating a monolithic legacy Dealer Management System to a modular, microservices-based architecture serving 15,000+ dealership users, with a mandate spanning delivery performance, governance, product safety, workforce strategy and AI adoption.",
+    achievements: [
+      "Inherited 13 teams with inconsistent Scrum/SAFe adoption; rebuilt ceremony discipline and coached engineers, managers and contractor leads directly.",
+      "Used Jira data and Power BI dashboards to target systemic underperformance rather than issue blanket mandates — +18% engineering throughput in two Program Increments.",
+      "Led headcount and budget strategy through an end-of-year restructuring, identifying $480K in projected 2026 savings on a trajectory toward $2M+.",
+      "Built program governance and executive reporting from scratch across India, USA and Taiwan, where no unified visibility previously existed.",
+      "Mapped and actively managed interdependencies across 8 portfolios and 280 integrations to prevent cascading delivery blockers."
+    ],
+    tags: ["SAFe","Power BI","Jira","Microservices","Automotive SaaS"]
+  },
+  "aente-ehr": {
+    company: "ThinkTech, for AENTE Health — 2020 – 2023",
+    title: "Encrypted Medical Record Sharing System",
+    location: "USA · Brazil · Chile",
+    metrics: [["38","Facilities Deployed"],["5","Compliance Frameworks"],["56","Integrations"],["100%","Encrypted Exchange"]],
+    desc: "Led development of a secure medical record-sharing platform for a hospital network, enabling encrypted data exchange and strict clinical confidentiality across departments — with full compliance to health data regulation, medical standards and information-security frameworks across every market served.",
+    achievements: [
+      "Designed and delivered encryption protocols, credential management, access policies and secure data-exchange flows aligned with HIPAA, LGPD and ISO 27001.",
+      "Defined workflows for secure exchange of clinical histories, exam results, prescriptions and internal notes across hospital units, ensuring traceability.",
+      "Oversaw rollout across 38 healthcare facilities, managing adoption, staff training and compliance documentation.",
+      "Coordinated IT, medical, legal and compliance teams across institutions with competing priorities and strict confidentiality obligations."
+    ],
+    tags: ["HIPAA","LGPD","ISO 27001","EHR","Hospital Network"]
+  },
+  teleport: {
+    company: "Avantsoft, for Teleport LA — Jun 2023 – May 2024",
+    title: "Social Thrifting &amp; Resale App",
+    location: "USA · Brazil (Remote)",
+    metrics: [["$10M","Series A Raised"],["35K","Active Users"],["100K+","Monthly Transactions"],["1-week","Sprint Cadence"]],
+    desc: "Served as primary delivery lead for the Brazilian engineering team on a TikTok-style social commerce marketplace for Gen Z secondhand fashion — bridging engineers in Brazil with US founding leadership across time zones and active fundraising pressure.",
+    achievements: [
+      "Compressed cadence to one-week sprints with tight feedback loops to match investor timelines that standard two-week sprints couldn't support.",
+      "Acted as the single point of contact between Brazilian engineering and US leadership, translating direction into execution with zero delivery surprises for founders.",
+      "Led a full pivot from iPhone-only app to web e-commerce platform mid-project — re-scoped and realigned two countries at one-week cadence without slipping timeline or quality.",
+      "Personally owned functional testing, regression testing and deployment coordination for every release.",
+      "Coordinated delivery of the video feed, closet profiles, in-video product tagging, real-time inventory and AI-powered style search."
+    ],
+    tags: ["React Native","Delivery Lead","QA Ownership","Series A"]
+  },
+  neurolaudos: {
+    company: "Avantsoft, for Neurolaudos — Apr 2023 – Jun 2024",
+    title: "Clinical Report SaaS Platform",
+    location: "Remote, Brazil",
+    metrics: [["R$3M","Angel Investment"],["8mo","vs. 10mo Planned"],["20%","Ahead of Schedule"],["1","Validated Pilot"]],
+    desc: "Brazilian SaaS platform digitalising the neuropsychological report lifecycle, from exam data input through structured report generation to patient delivery. Inherited a technically functional but workflow-disconnected MVP with a hard investment deadline.",
+    achievements: [
+      "Audited the existing MVP, mapped clinical workflow failure points, and defined a remodelled system architecture.",
+      "Compressed a 10-month delivery timeline to 8 months through tracking frameworks and execution standards, without cutting scope or clinical quality.",
+      "Used the two-month buffer to run a structured real-world pilot with practicing neuropsychologists — investors funded validated clinical evidence, not a demo.",
+      "Built KPI structures for report turnaround, volume and quality, used for both the investor round and ongoing operations.",
+      "Coordinated a full-stack PHP/JavaScript team alongside neuropsychologist domain specialists and investor stakeholders."
+    ],
+    tags: ["PHP","JavaScript","Healthcare SaaS","LGPD","HIPAA"]
+  },
+  vortx: {
+    company: "ThinkTech, for Vórtx Capital — 2020 – 2022",
+    title: "Investor Portal Tax Report UX Redesign",
+    location: "Remote, Brazil",
+    metrics: [["30K","Downloads, 10 Days"],["1M+","Investors Served"],["R$1.7T","Assets Under Custody"],["2mo","MVP Delivery"]],
+    desc: "Vórtx administers R$1.7 trillion in assets and holds a majority share of Brazilian fiduciary agent services. Investors needed their annual tax report, but it was buried in the portal, formatted incorrectly, and written in inaccessible technical language — the problem was discoverability and readability, not missing data.",
+    achievements: [
+      "Mapped the investor journey during tax season and identified four failure points: hidden navigation, technical jargon, wrong tax-authority format, no seasonal urgency signal.",
+      "Designed the tax report entry point — button placement, CTA language and visual hierarchy — making the report impossible to miss during declaration season.",
+      "Restructured the report from dense financial jargon into investor-readable language while meeting every regulatory formatting requirement.",
+      "Resisted scope creep, keeping the squad focused on homepage button, download page and redesigned template — shipped in 2 months.",
+      "Result: 30,000 downloads in the first 10 days; the MVP was adopted permanently into the platform, now serving 1M+ investors."
+    ],
+    tags: ["FinTech","Investor Portal","UX Strategy","Tax Compliance"]
+  },
+  rtpcr: {
+    company: "ThinkTech, for Testes Moleculares — 2020 – 2023",
+    title: "COVID-19 Lab Automation &amp; Healthcare Platform",
+    location: "Bahia, Brazil",
+    metrics: [["$90K","Yearly Licensing Savings"],["10K","Users Post-Launch"],["100%","Manual Processes Automated"]],
+    desc: "Full-cycle development of two integrated platforms during the peak of the pandemic — a clinical laboratory system processing RT-PCR results, and a companion healthcare access layer — built under extreme urgency to keep testing and patient communication running.",
+    achievements: [
+      "Led requirements gathering, scope definition, UX/UI design, development coordination, QA and release for the complete lab system.",
+      "Defined the data pipeline translating RT-PCR instrument output into structured, clinically accurate results following lab validation standards.",
+      "Implemented automated workflows delivering finalized reports directly to patients by email, cutting manual workload and turnaround time.",
+      "Designed the lab results module UI so technicians could review, verify and release results with fewer manual errors.",
+      "Recruited and onboarded new team members mid-delivery, introducing Agile/Scrum to improve planning and communication under pressure."
+    ],
+    tags: ["RT-PCR","Laboratory Automation","COVID-19","Agile"]
+  },
+  globalreviews: {
+    company: "Avantsoft, for Global Reviews — Apr 2023 – Jun 2024",
+    title: "Digital Intelligence Platform",
+    location: "Australia · Ireland · USA",
+    metrics: [["500+","Enterprise Brands"],["120K+","Journeys Tracked"],["3","Continents Served"],["20+ yrs","Methodology Translated"]],
+    desc: "Australia's most established digital intelligence company — a B2B SaaS and consulting hybrid benchmarking competitive digital customer journeys for banks, insurers, telecoms and travel brands. Led the platform's transformation from reporting tool to predictive intelligence platform.",
+    achievements: [
+      "Scoped AI-powered predictive scoring features with product leadership, translating 20+ years of evaluation data into likelihood scores for new assessments.",
+      "Redesigned the platform from data-heavy tables to prioritised visual dashboards, making competitive intelligence faster to act on.",
+      "Scoped cross-industry pattern visibility features, surfacing UX and conversion innovations from adjacent sectors.",
+      "Managed every sprint and release with zero disruption to live benchmarking data while enterprise clients used the platform in production.",
+      "Translated 20+ years of specialised research methodology — digital ethnography, usability testing at scale — into structured product requirements."
+    ],
+    tags: ["B2B SaaS","Ruby on Rails","UX Research","Predictive Analytics"]
+  },
+  bigdelivery: {
+    company: "Avantsoft, for BigDelivery — Apr 2023 – Jun 2024",
+    title: "Niche Marketplace &amp; Last-Mile Delivery Scale-Up",
+    location: "Remote, Brazil",
+    metrics: [["+66%","Sprint Velocity"],["70%","Faster Decisions"],["1→25","Vendors Scaled"],["3.5M","People Reached"]],
+    desc: "Brazilian e-commerce marketplace and last-mile delivery platform, evolving from a single-vendor butchery app into a multi-vendor marketplace. Joined when the platform was scaling faster than its delivery process could absorb.",
+    achievements: [
+      "Audited sprint structure and backlog management, identifying throughput leaks — restructured cadence and prioritisation for +66% sprint output.",
+      "Cut stakeholder approval time from 7 days to 2 by restructuring how decisions were requested and taking direct ownership of client communication.",
+      "Onboarded new team members into a disciplined process during a small-to-medium team scale-up, lifting output per person.",
+      "Managed delivery implications as the platform grew from 1 to 25 vendors and single- to multi-city operations.",
+      "Installed sprint delivery metrics giving the team velocity visibility and a continuous-improvement data foundation."
+    ],
+    tags: ["Scrum Master","Product Owner","Marketplace","Logistics"]
+  },
+  "aente-appt": {
+    company: "ThinkTech, for Aente Health — Jun 2021 – Feb 2022",
+    title: "Appointment &amp; Teleconsultation Platform",
+    location: "Brazil",
+    metrics: [["10K","Users at Launch"],["2","Platforms Shipped"],["Real-time","Booking Live"]],
+    desc: "Led UX/UI design and product management for a healthcare appointment platform — real-time doctor booking, teleconsultation, digital health records and online payments — built in React for mobile and PHP for the web portal on an AWS/MongoDB architecture.",
+    achievements: [
+      "Designed the complete user experience for mobile and web: user flows, wireframes, prototypes and information architecture.",
+      "Delivered real-time appointment scheduling, teleconsultation video, digital health records, doctor discovery and payment integration.",
+      "Planned and supported go-to-market execution, including in-app campaigns — the platform reached 10,000 users shortly after launch.",
+      "Coordinated frontend (React) and backend (PHP) teams, ensuring consistency across mobile and web on a scalable AWS/MongoDB architecture."
+    ],
+    tags: ["React","PHP","MongoDB","AWS","Telehealth"]
+  },
+  edtech: {
+    company: "ThinkTech — Mar 2020 – Jun 2020",
+    title: "EdTech Platform — Online Classes &amp; School Portal",
+    location: "Brazil",
+    metrics: [["3","User Roles Supported"],["COVID-19","Continuity Delivered"]],
+    desc: "Led implementation of an EdTech platform enabling schools serving low-income communities to continue operating during COVID-19 — live-streaming, course management, attendance tracking, digital content, interactive assessments and administrative dashboards.",
+    achievements: [
+      "Managed live-streaming setup, course management, attendance tracking and content distribution across student, teacher and admin user types.",
+      "Coordinated integration with existing academic tools, authentication systems and internal databases.",
+      "Ran onboarding sessions for teachers and administrative teams to ensure smooth adoption under COVID-19 time pressure.",
+      "Ensured the platform met education compliance standards and data-privacy requirements for student information."
+    ],
+    tags: ["EdTech","LMS","Live Streaming","Data Privacy"]
+  },
+  homedecor: {
+    company: "ThinkTech — Jul 2020 – Oct 2020",
+    title: "Home Decor E-Commerce — US Market Launch",
+    location: "USA",
+    metrics: [["720%","Traffic Growth, 6mo"],["120%","Revenue Increase"],["7d→2d","Delivery Time"],["80K","New Followers"]],
+    desc: "Led project management, marketing planning and e-commerce launch for a US home decor client — integrating with Amazon, Mercado Livre and Americanas, with dynamic pricing, an inventory provisioning calculator and a new logistics partnership.",
+    achievements: [
+      "Orchestrated multi-platform integration across Amazon, Mercado Livre and Americanas with dynamic pricing and inventory tooling.",
+      "Partnered with a logistics carrier to cut delivery time from 7 to 2 days and secure 12% cheaper rates through strategic agreements.",
+      "Drove 720% website traffic growth (1.5M visits in six months), 80K new social followers, and 120% revenue growth in the first active year.",
+      "Directed a development team in India, keeping delivery aligned with client expectations across time zones.",
+      "Re-engineered the client's internal operations alongside the platform launch."
+    ],
+    tags: ["E-commerce","Amazon","Logistics","Digital Marketing"]
+  },
+  "ideal-brand": {
+    company: "I-Deal Group Asia — Feb 2017 – May 2020",
+    title: "Proprietary Digital Brand Launch, China Market",
+    location: "Shenzhen, China",
+    metrics: [["$6M","First-Year Revenue"],["9","Global Brands Scaled"],["1,500+","Products Managed"],["6","Regulated Industries"]],
+    desc: "Owned the company's global digital transformation strategy and entire product portfolio, leading programs across healthcare, technology and industrial sectors. Conceived, built and launched the company's first proprietary beauty e-commerce brand for the Chinese market, then scaled the model globally.",
+    achievements: [
+      "Launched the first proprietary digital brand for the Chinese market, generating $6M in first-year revenue — then scaled the model to 9 global brands.",
+      "Directed development and lifecycle management of 1,500+ products across six regulated industries, ensuring compliance and certification in each territory.",
+      "Acted as primary interface with government agencies and certification bodies, securing product approvals across multiple regulatory frameworks.",
+      "Implemented an enterprise CRM and sales governance framework, driving cost savings and pipeline visibility.",
+      "Represented the company at 20+ international trade fairs across 8+ countries, building global partnerships."
+    ],
+    tags: ["Digital Transformation","Brand Launch","Regulatory Affairs","CRM"]
+  }
+};
+
+const modalOverlay = document.getElementById('modalOverlay');
+const modalContent = document.getElementById('modalContent');
+const modalCloseBtn = document.getElementById('modalClose');
+let lastFocusedEl = null;
+
+function openProjectModal(id) {
+  const p = projectDetails[id];
+  if (!p) return;
+  modalContent.innerHTML = `
+    <div class="modal-company">${p.company}</div>
+    <h3 class="modal-title" id="modalTitle">${p.title}</h3>
+    <div class="modal-location">${p.location}</div>
+    <div class="modal-metrics">
+      ${p.metrics.map(m => `<div class="modal-metric"><div class="m-num">${m[0]}</div><div class="m-label">${m[1]}</div></div>`).join('')}
+    </div>
+    <p class="modal-desc">${p.desc}</p>
+    <div class="modal-sub">What I did</div>
+    <ul class="modal-achievements">${p.achievements.map(a => `<li>${a}</li>`).join('')}</ul>
+    <div class="modal-tags">${p.tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}</div>
+  `;
+  lastFocusedEl = document.activeElement;
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  modalCloseBtn.focus();
+}
+function closeProjectModal() {
+  modalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastFocusedEl) lastFocusedEl.focus();
+}
+document.querySelectorAll('.project-card[data-project]').forEach(card => {
+  card.addEventListener('click', () => openProjectModal(card.dataset.project));
+});
+modalCloseBtn.addEventListener('click', closeProjectModal);
+modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeProjectModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeProjectModal(); });
+
+/* ── SMOOTH NAV HIGHLIGHT ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current
+      ? 'var(--gold-light)' : 'rgba(250,248,243,0.7)';
+  });
+});
+</script>
+</body>
+</html>
