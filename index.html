@@ -423,82 +423,7 @@
     font-size: 0.95rem; color: rgba(250,248,243,0.6);
     max-width: 600px; line-height: 1.7; margin-bottom: 3rem;
   }
-  .calc-container {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 3rem; align-items: start;
-  }
-  .calc-controls { display: flex; flex-direction: column; gap: 2rem; }
-  .calc-slider-group label {
-    display: flex; justify-content: space-between;
-    font-size: 0.8rem; font-weight: 500;
-    color: rgba(250,248,243,0.7);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.8rem;
-  }
-  .calc-slider-group label span {
-    color: var(--gold-light);
-    font-weight: 600;
-  }
-  input[type=range].gold-range {
-    -webkit-appearance: none;
-    width: 100%; height: 2px;
-    background: rgba(201,168,76,0.2);
-    outline: none;
-    border-radius: 0;
-  }
-  input[type=range].gold-range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px; height: 18px;
-    background: var(--gold);
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid var(--navy);
-    box-shadow: 0 0 0 2px var(--gold);
-  }
-  input[type=range].gold-range::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, var(--gold) 0%, var(--gold) var(--pct, 50%), rgba(201,168,76,0.2) var(--pct, 50%));
-    height: 2px;
-  }
-  .calc-results { display: flex; flex-direction: column; gap: 1.5rem; }
-  .result-card {
-    background: rgba(250,248,243,0.04);
-    border: 1px solid rgba(201,168,76,0.15);
-    padding: 1.5rem 2rem;
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-md);
-  }
-  .result-card::before {
-    content: '';
-    position: absolute; left: 0; top: 0; bottom: 0;
-    width: 3px; background: var(--gold);
-  }
-  .result-label {
-    font-size: 0.68rem; font-weight: 600;
-    color: rgba(250,248,243,0.45);
-    letter-spacing: 0.15em; text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-  .result-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.4rem; font-weight: 600;
-    color: var(--gold-light);
-    line-height: 1;
-  }
-  .result-sub {
-    font-size: 0.75rem; color: rgba(250,248,243,0.45);
-    margin-top: 0.3rem;
-  }
-  .impact-quote {
-    margin-top: 3rem;
-    border-top: 1px solid rgba(201,168,76,0.15);
-    padding-top: 2rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-style: italic;
-    color: rgba(250,248,243,0.55);
-    max-width: 700px;
-  }
-  .impact-quote strong { color: var(--gold-light); font-style: normal; }
+
 
   /* ── EXPERIENCE TIMELINE ── */
   #experience { background: var(--warm-white); }
@@ -666,71 +591,309 @@
     .education-grid { grid-template-columns: 1fr; }
   }
 
-  /* ── CONTACT ── */
-  #contact {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
-  }
-  #contact .section-title { color: var(--warm-white); }
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; margin-top: 3rem; align-items: start;
-  }
-  .contact-info p {
-    font-size: 0.95rem; color: rgba(250,248,243,0.6);
-    line-height: 1.8; margin-bottom: 2rem;
-  }
-  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-  .contact-link {
-    display: flex; align-items: center; gap: 1rem;
-    text-decoration: none;
-    padding: 1rem 1.5rem;
-    border: 1px solid rgba(201,168,76,0.2);
-    color: rgba(250,248,243,0.75);
-    font-size: 0.85rem;
-    border-radius: var(--radius-md);
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
-  }
-  .contact-link:hover {
-    border-color: var(--gold);
-    color: var(--gold-light);
-    background: rgba(201,168,76,0.05);
-  }
-  .contact-link .cl-icon {
-    width: 36px; height: 36px;
-    background: rgba(201,168,76,0.1);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-    border-radius: 50%;
-  }
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    background: rgba(250,248,243,0.04);
-    border: 1px solid rgba(201,168,76,0.2);
-    color: var(--warm-white);
-    padding: 0.9rem 1.1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    outline: none;
-    border-radius: var(--radius-sm);
-    transition: border-color 0.2s;
-    resize: none;
-  }
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder { color: rgba(250,248,243,0.35); }
-  .contact-form input:focus,
-  .contact-form textarea:focus { border-color: var(--gold); }
-  .contact-form textarea { min-height: 120px; }
-  .form-note {
-    font-size: 0.75rem; color: rgba(250,248,243,0.4);
-    margin-top: -0.5rem;
+  .education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+
+/* =========================
+   CONTINUOUS LEARNING
+   ========================= */
+
+.education-extra {
+  margin-top: 3.5rem;
+}
+
+.education-extra-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.learning-note {
+  max-width: 850px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.65;
+  margin-bottom: 2.5rem;
+}
+
+
+/* CATEGORY */
+
+.learning-category {
+  margin-top: 2.75rem;
+}
+
+.learning-category-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  margin-bottom: 1rem;
+}
+
+.category-subtitle {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  opacity: 0.55;
+}
+
+
+/* FOUR-COLUMN COURSE GRID */
+
+.learning-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+
+/* COURSE CARD */
+
+.learning-card {
+  min-height: 145px;
+
+  padding: 1.2rem;
+
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.025);
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* SLIGHTLY MORE IMPORTANT COURSES */
+
+.learning-card-featured {
+  border-color: rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.04);
+}
+
+
+/* HOVER */
+
+.learning-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  background: rgba(255,255,255,0.05);
+}
+
+
+/* TITLE */
+
+.learning-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+
+  margin-bottom: 0.55rem;
+}
+
+
+/* DESCRIPTION */
+
+.learning-card-desc {
+  font-size: 0.74rem;
+  line-height: 1.55;
+
+  opacity: 0.62;
+
+  margin-bottom: 0.8rem;
+}
+
+
+/* SCHOOL / DATE / HOURS */
+
+.learning-card-meta {
+  font-size: 0.7rem;
+  line-height: 1.5;
+
+  opacity: 0.48;
+
+  margin-top: auto;
+}
+
+
+/* BADGES */
+
+.learning-card .li-badge {
+  align-self: flex-start;
+  margin-top: 0.7rem;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1100px) {
+
+  .learning-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+}
+
+
+@media (max-width: 850px) {
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .learning-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+.learning-card {
+  min-height: 145px;
+
+  padding: 1.2rem;
+
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 10px;
+
+  /* Light gold background */
+  background: rgba(212, 175, 55, 0.07);
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Slightly stronger gold for featured learning */
+
+.learning-card-featured {
+  border-color: var(--cream);
+  background: rgba(212, 175, 55, 0.11);
+}
+
+
+/* Hover */
+
+.learning-card:hover {
+    border-color: var(--gold);
+
+  background: rgba(212, 175, 55, 0.14);
+
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.08);
+}
+
+  /* ── CONTACT ── */
+#contact {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+#contact .section-title {
+  color: var(--warm-white);
+}
+
+/* Entire contact section = ONE COLUMN */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+/* Contact description */
+.contact-info p {
+  font-size: 0.95rem;
+  color: rgba(250,248,243,0.6);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* ONLY the contact cards = THREE COLUMNS */
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Individual contact card */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  text-decoration: none;
+
+  padding: 1rem 1.5rem;
+
+  border: 1px solid rgba(201,168,76,0.2);
+  color: rgba(250,248,243,0.75);
+
+  font-size: 0.85rem;
+  border-radius: var(--radius-md);
+
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s,
+    transform 0.2s;
+}
+
+.contact-link:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(201,168,76,0.05);
+  transform: translateY(-2px);
+}
+
+.contact-link .cl-icon {
+  width: 36px;
+  height: 36px;
+
+  background: rgba(201,168,76,0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.1rem;
+
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+  
   /* ── FOOTER ── */
   footer {
     background: var(--navy);
@@ -967,7 +1130,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Lu Babani</a>
+  <a href="#hero" class="nav-logo">Lucilandia Babani</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -984,13 +1147,13 @@
   <div class="hero-bg-lines"></div>
   <div class="hero-glow"></div>
   <div class="hero-text">
-    <div class="hero-eyebrow">Senior Technology Program Manager</div>
+    <div class="hero-eyebrow">Senior Technology Project Manager</div>
     <h1 class="hero-name">
-      Lucilandia<br><em>Babani</em>
+      Lucilandia <em>Babani</em>
     </h1>
-    <p class="hero-title">Program Leader · Product Strategist · Global Delivery</p>
+    <p class="hero-title"> Leadership · Strategy · Global Delivery</p>
     <p class="hero-desc">
-      15+ years turning complex, ambiguous technology programs into measurable outcomes across healthcare, finance, automotive, and energy sectors, on three continents.
+      Turning complex, ambiguous projects into measurable outcomes
     </p>
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">View Projects →</a>
@@ -1047,175 +1210,7 @@
       </p>
     </div>
     <div class="reveal" style="transition-delay:0.15s">
-  <div class="skill-category">
-    <div class="skill-category-title">Technical Program Management</div>
-    <div class="skills-grid">
-      <div class="skill-tag">Technical Program Management</div>
-      <div class="skill-tag">Program Management</div>
-      <div class="skill-tag">End-to-End Delivery</div>
-      <div class="skill-tag">Integrated Program Planning</div>
-      <div class="skill-tag">Cross-Portfolio Management</div>
-      <div class="skill-tag">Dependency Management</div>
-      <div class="skill-tag">Milestone Tracking</div>
-      <div class="skill-tag">Critical Path Management</div>
-      <div class="skill-tag">RAID Management</div>
-      <div class="skill-tag">Risk & Issue Management</div>
-      <div class="skill-tag">Resource / Capacity Planning</div>
-      <div class="skill-tag">Release Management</div>
-      <div class="skill-tag">Release Readiness</div>
-      <div class="skill-tag">Change Management</div>
-      <div class="skill-tag">Program Health Reporting</div>
-      <div class="skill-tag">Delivery Performance</div>
-    </div>
-  </div>
-  <div class="skill-category" style="margin-top:1.5rem">
-    <div class="skill-category-title">Agile & Delivery</div>
-    <div class="skills-grid">
-      <div class="skill-tag">SAFe</div>
-      <div class="skill-tag">SAFe PI Planning</div>
-      <div class="skill-tag">Scrum</div>
-      <div class="skill-tag">Agile at Scale</div>
-      <div class="skill-tag">Large-Scale Agile</div>
-      <div class="skill-tag">Kanban</div>
-      <div class="skill-tag">Hybrid Delivery</div>
-      <div class="skill-tag">SDLC</div>
-      <div class="skill-tag">Sprint Planning</div>
-      <div class="skill-tag">Sprint Execution</div>
-      <div class="skill-tag">Backlog Management</div>
-      <div class="skill-tag">Backlog Prioritisation</div>
-      <div class="skill-tag">Scrum of Scrums</div>
-      <div class="skill-tag">Delivery Cadence</div>
-      <div class="skill-tag">Schedule Acceleration</div>
-    </div>
-  </div>
-
-  <div class="skill-category" style="margin-top:1.5rem">
-    <div class="skill-category-title">Product Management</div>
-    <div class="skills-grid">
-      <div class="skill-tag">Product Management</div>
-      <div class="skill-tag">Product Ownership</div>
-      <div class="skill-tag">Product Strategy</div>
-      <div class="skill-tag">Product Roadmap</div>
-      <div class="skill-tag">Product Lifecycle Management</div>
-      <div class="skill-tag">Product Discovery</div>
-      <div class="skill-tag">MVP Definition</div>
-      <div class="skill-tag">MVP Scoping</div>
-      <div class="skill-tag">Feature Prioritisation</div>
-      <div class="skill-tag">Backlog Prioritisation</div>
-      <div class="skill-tag">User Story Mapping</div>
-      <div class="skill-tag">Acceptance Criteria</div>
-      <div class="skill-tag">Product Requirements</div>
-      <div class="skill-tag">Product Metrics</div>
-      <div class="skill-tag">Go-to-Market</div>
-    </div>
-  </div>
-
-  <div class="skill-category" style="margin-top:1.5rem">
-    <div class="skill-category-title">Leadership & Governance</div>
-    <div class="skills-grid">
-      <div class="skill-tag">Enterprise Program Governance</div>
-      <div class="skill-tag">Cross-Functional Leadership</div>
-      <div class="skill-tag">Multinational Team Leadership</div>
-      <div class="skill-tag">Distributed Team Leadership</div>
-      <div class="skill-tag">Executive Stakeholder Management</div>
-      <div class="skill-tag">Executive Communication</div>
-      <div class="skill-tag">C-Suite Communication</div>
-      <div class="skill-tag">Stakeholder Alignment</div>
-      <div class="skill-tag">Engineering Leadership</div>
-      <div class="skill-tag">Agile Coaching</div>
-      <div class="skill-tag">Scrum Coaching</div>
-      <div class="skill-tag">Team Mentoring</div>
-      <div class="skill-tag">Performance Management</div>
-      <div class="skill-tag">Vendor Management</div>
-      <div class="skill-tag">Accountability Frameworks</div>
-    </div>
-  </div>
-
-  <div class="skill-category" style="margin-top:1.5rem">
-    <div class="skill-category-title">Technology & Architecture</div>
-    <div class="skills-grid">
-      <div class="skill-tag">Software Engineering</div>
-      <div class="skill-tag">System Architecture</div>
-      <div class="skill-tag">Technical Requirements</div>
-      <div class="skill-tag">Technical Discovery</div>
-      <div class="skill-tag">Architecture Reviews</div>
-      <div class="skill-tag">API Integration</div>
-      <div class="skill-tag">System Integration</div>
-      <div class="skill-tag">Cloud Modernization</div>
-      <div class="skill-tag">Legacy System Modernisation</div>
-      <div class="skill-tag">Platform Modernisation</div>
-      <div class="skill-tag">AWS</div>
-      <div class="skill-tag">Distributed Systems</div>
-      <div class="skill-tag">Microservices</div>
-      <div class="skill-tag">JavaScript</div>
-      <div class="skill-tag">React</div>
-      <div class="skill-tag">Python</div>
-      <div class="skill-tag">Git & GitHub</div>
-      <div class="skill-tag">SQL</div>
-      <div class="skill-tag">NoSQL Databases</div>
-    </div>
-  </div>
-  <div class="skill-category" style="margin-top:1.5rem">
-    <div class="skill-category-title">Data, AI & Automation</div>
-    <div class="skills-grid">
-      <div class="skill-tag">Power BI</div>
-      <div class="skill-tag">Data-Driven Decision Making</div>
-      <div class="skill-tag">Performance Analytics</div>
-      <div class="skill-tag">KPI Design</div>
-      <div class="skill-tag">Delivery Dashboards</div>
-      <div class="skill-tag">Velocity Tracking</div>
-      <div class="skill-tag">Sprint Metrics</div>
-      <div class="skill-tag">AI Adoption</div>
-      <div class="skill-tag">AI Integration</div>
-      <div class="skill-tag">AI-Enabled Solutions</div>
-      <div class="skill-tag">Machine Learning</div>
-      <div class="skill-tag">Predictive Analytics</div>
-      <div class="skill-tag">Process Automation</div>
-      <div class="skill-tag">Workflow Automation</div>
-    </div>
-  </div>
-
-  <div class="skill-category" style="margin-top:1.5rem">
-    <div class="skill-category-title">Business & Strategy</div>
-    <div class="skills-grid">
-      <div class="skill-tag">Digital Transformation</div>
-      <div class="skill-tag">Business-Technology Alignment</div>
-      <div class="skill-tag">Business Analysis</div>
-      <div class="skill-tag">Business Case Development</div>
-      <div class="skill-tag">Business Strategy</div>
-      <div class="skill-tag">Budget Management</div>
-      <div class="skill-tag">Cost Optimisation</div>
-      <div class="skill-tag">Workforce Optimisation</div>
-      <div class="skill-tag">Headcount Planning</div>
-      <div class="skill-tag">Negotiation</div>
-      <div class="skill-tag">Performance Measurement</div>
-      <div class="skill-tag">OKRs & KPIs</div>
-      <div class="skill-tag">Process Improvement</div>
-      <div class="skill-tag">Lean Six Sigma</div>
-    </div>
-  </div>
-
-  <div class="skill-category" style="margin-top:1.5rem">
-    <div class="skill-category-title">Industries & Security</div>
-    <div class="skills-grid">
-      <div class="skill-tag">Healthcare IT</div>
-      <div class="skill-tag">MedTech / HealthTech</div>
-      <div class="skill-tag">Automotive SaaS</div>
-      <div class="skill-tag">Dealer Management Systems</div>
-      <div class="skill-tag">FinTech</div>
-      <div class="skill-tag">E-commerce</div>
-      <div class="skill-tag">B2B SaaS</div>
-      <div class="skill-tag">HIPAA</div>
-      <div class="skill-tag">LGPD</div>
-      <div class="skill-tag">ISO 27001</div>
-      <div class="skill-tag">Data Privacy</div>
-      <div class="skill-tag">Cybersecurity</div>
-      <div class="skill-tag">Defensive Security</div>
-      <div class="skill-tag">Offensive Security</div>
-      <div class="skill-tag">Information Security Management</div>
-      <div class="skill-tag">Regulated Environments</div>
-    </div>
-  </div>
+  
 </div>
     </div>
   </div>
@@ -1444,6 +1439,80 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">15 years of <em>global delivery</em></h2>
+  <div class="divider"></div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="tl-period">Feb 2025 – Present</div>
+      <div class="tl-company">CDK Global Hyderabad, India</div>
+      <div class="tl-role">Senior Technology Program Manager</div>
+      <ul class="tl-points">
+        <li>Directing 250+ engineers across 16 teams in USA, India & Taiwan on mission-critical automotive DMS modernization</li>
+        <li>Identified $480K in cost savings through strategic workforce optimisation; projecting $2M for 2026</li>
+        <li>Drove 32% productivity uplift by rebuilding SAFe/Scrum discipline across 6 underperforming teams</li>
+        <li>Built Power BI dashboards enabling real-time executive decision-making across 3 regions</li>
+        <li>Managed 280+ system integrations across 8 portfolios, preventing cascading delivery blockers</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="tl-period">May 2023 – Jun 2024</div>
+      <div class="tl-company">Avantsoft Brazil (Remote)</div>
+      <div class="tl-role">Technology Project Manager | Product & Delivery</div>
+      <ul class="tl-points">
+        <li>Led global digital delivery programs for clients in Brazil, USA, Italy, and Australia</li>
+        <li>Increased sprint velocity ~25–30% within 3 sprints through Agile reset and team mentorship</li>
+        <li>Managed a high-stakes product pivot that contributed directly to client securing $10M Series A</li>
+        <li>Drove company's first UX research, achieving insights that retained a high-value client</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="tl-period">Jun 2020 – Jun 2023</div>
+      <div class="tl-company">ThinkTech Digital - USA | Brazil</div>
+      <div class="tl-role">Co-Founder | Head of Product & Technology Program Delivery</div>
+      <ul class="tl-points">
+        <li>Co-founded and scaled a tech consultancy delivering regulated platforms across Healthcare, Finance & Education</li>
+        <li>Delivered EHR platform across 38 facilities meeting HIPAA, LGPD, ANVISA, ISO 27001 & CFM/CRM simultaneously</li>
+        <li>Built clinical inventory management system reducing hospital supply waste by 30%</li>
+        <li>Shipped COVID-era education platform during peak pandemic for schools serving low-income communities</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="tl-period">Feb 2012 – May 2020</div>
+      <div class="tl-company">I-Deal Group Asia Ltd. — China</div>
+      <div class="tl-role">Senior Manager, Product & Digital Transformation</div>
+      <ul class="tl-points">
+        <li>8-year tenure leading international market expansion across Asia, North America & South America</li>
+        <li>Launched proprietary e-commerce platform in China market generating $6M in revenue over 5 years</li>
+        <li>Scaled global product portfolio to 9 brands and 1,500+ products across 8 international markets</li>
+        <li>Built and led 6 multinational teams across 5 countries</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Always Learning</div>
+
+  <h2 class="section-title">
+    Education &amp; <em>Continuous Learning</em>
+  </h2>
+
+  <div class="divider"></div>
+
+
 <!-- IMPACT CALCULATOR -->
 <section id="impact">
   <div class="section-label">Interactive</div>
@@ -1633,223 +1702,225 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">Experience</div>
-  <h2 class="section-title">15 years of <em>global delivery</em></h2>
-  <div class="divider"></div>
-  <div class="timeline">
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="tl-period">Feb 2025 – Present</div>
-      <div class="tl-company">CDK Global Hyderabad, India</div>
-      <div class="tl-role">Senior Technology Program Manager</div>
-      <ul class="tl-points">
-        <li>Directing 250+ engineers across 16 teams in USA, India & Taiwan on mission-critical automotive DMS modernization</li>
-        <li>Identified $480K in cost savings through strategic workforce optimisation; projecting $2M for 2026</li>
-        <li>Drove 32% productivity uplift by rebuilding SAFe/Scrum discipline across 6 underperforming teams</li>
-        <li>Built Power BI dashboards enabling real-time executive decision-making across 3 regions</li>
-        <li>Managed 280+ system integrations across 8 portfolios, preventing cascading delivery blockers</li>
-      </ul>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="tl-period">May 2023 – Jun 2024</div>
-      <div class="tl-company">Avantsoft Brazil (Remote)</div>
-      <div class="tl-role">Technology Project Manager | Product & Delivery</div>
-      <ul class="tl-points">
-        <li>Led global digital delivery programs for clients in Brazil, USA, Italy, and Australia</li>
-        <li>Increased sprint velocity ~25–30% within 3 sprints through Agile reset and team mentorship</li>
-        <li>Managed a high-stakes product pivot that contributed directly to client securing $10M Series A</li>
-        <li>Drove company's first UX research, achieving insights that retained a high-value client</li>
-      </ul>
-    </div>
+  <!-- =========================
+       FORMAL EDUCATION
+       ========================= -->
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="tl-period">Jun 2020 – Jun 2023</div>
-      <div class="tl-company">ThinkTech Digital - USA | Brazil</div>
-      <div class="tl-role">Co-Founder | Head of Product & Technology Program Delivery</div>
-      <ul class="tl-points">
-        <li>Co-founded and scaled a tech consultancy delivering regulated platforms across Healthcare, Finance & Education</li>
-        <li>Delivered EHR platform across 38 facilities meeting HIPAA, LGPD, ANVISA, ISO 27001 & CFM/CRM simultaneously</li>
-        <li>Built clinical inventory management system reducing hospital supply waste by 30%</li>
-        <li>Shipped COVID-era education platform during peak pandemic for schools serving low-income communities</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="tl-period">Feb 2012 – May 2020</div>
-      <div class="tl-company">I-Deal Group Asia Ltd. — China</div>
-      <div class="tl-role">Senior Manager, Product & Digital Transformation</div>
-      <ul class="tl-points">
-        <li>8-year tenure leading international market expansion across Asia, North America & South America</li>
-        <li>Launched proprietary e-commerce platform in China market generating $6M in revenue over 5 years</li>
-        <li>Scaled global product portfolio to 9 brands and 1,500+ products across 8 international markets</li>
-        <li>Built and led 6 multinational teams across 5 countries</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">Always Learning</div>
-  <h2 class="section-title">Education &amp; <em>certifications</em></h2>
-  <div class="divider"></div>
   <div class="education-grid">
 
     <div class="edu-card reveal">
-      <div class="edu-when">2024 – 2026 · In Progress</div>
-      <div class="edu-degree">Postgraduate Diploma, Artificial Intelligence &amp; Machine Learning</div>
-      <div class="edu-school">PUC Minas Gerais — Brazil</div>
+      <div class="edu-when">2026 – 2028 · In Progress</div>
+      <div class="edu-degree">
+        MBA, Digital Transformation &amp; Future of Organizations with AI
+      </div>
+      <div class="edu-school">
+        PUCRS — Brazil
+      </div>
     </div>
+
+
+    <div class="edu-card reveal">
+      <div class="edu-when">2024 – 2026 · In Progress</div>
+      <div class="edu-degree">
+        Postgraduate Diploma, Artificial Intelligence &amp; Machine Learning
+      </div>
+      <div class="edu-school">
+        PUC Minas Gerais — Brazil
+      </div>
+    </div>
+
 
     <div class="edu-card reveal" style="transition-delay:0.05s">
       <div class="edu-when">2025 – 2026</div>
-      <div class="edu-degree">Postgraduate Diploma, Information Security &amp; Cybersecurity</div>
-      <div class="edu-school">Faculdade XP Educação (IGTI) — 444h</div>
+      <div class="edu-degree">
+        Postgraduate Diploma, Information Security &amp; Cybersecurity
+      </div>
+      <div class="edu-school">
+        Faculdade XP Educação (IGTI) — 444h
+      </div>
+      <span class="edu-badge">Top Performer Student</span>
     </div>
 
-    <div class="edu-card reveal" style="transition-delay:0.1s">
-      <div class="edu-when">420 Hours</div>
-      <div class="edu-degree">Product Management Full Stack</div>
-      <div class="edu-school">Escola DNC — Online</div>
-      <span class="edu-badge">Honor &amp; Excellence Student</span>
-    </div>
 
     <div class="edu-card reveal" style="transition-delay:0.15s">
       <div class="edu-when">2024</div>
-      <div class="edu-degree">B.Sc. Software Engineering</div>
-      <div class="edu-school">UCSAL — Catholic University of Salvador, Brazil</div>
+      <div class="edu-degree">
+        B.Sc. Software Engineering
+      </div>
+      <div class="edu-school">
+        UCSAL — Catholic University of Salvador, Brazil
+      </div>
       <span class="edu-badge">GPA 9.14 / 10.0</span>
     </div>
 
-    <div class="edu-card reveal" style="transition-delay:0.2s">
-      <div class="edu-when">2008</div>
-      <div class="edu-degree">Associate Degree, Business Management</div>
-      <div class="edu-school">Faculdades Integradas Olga Mettig — Bahia, Brazil</div>
+  </div>
+
+
+  <!-- =========================
+       CONTINUOUS LEARNING
+       ========================= -->
+
+
+
+    <!-- PRODUCT / BUSINESS / DEVELOPMENT -->
+
+    <div class="learning-category">
+
+      <div class="learning-category-title">
+        Product, Business &amp; Development
+      </div>
+
+
+
+      <div class="learning-card-grid">
+
+
+        <div class="learning-card learning-card-featured">
+
+          <div class="learning-card-title">
+            Product Management Full Stack
+          </div>
+
+          <div class="learning-card-desc">
+            Product Discovery, Growth, UX/UI Prototyping, Product Analytics,
+            MVP Development, Agile Methodologies, Front-End Development,
+            Project Presentation &amp; Pitch.
+          </div>
+
+          <div class="learning-card-meta">
+            Escola DNC · 420h<br>
+            Aug 2022 – Jun 2023
+          </div>
+
+          <span class="li-badge">
+            Honor &amp; Excellence
+          </span>
+
+        </div>
+
+          <div class="learning-card">
+          <div class="learning-card-title">
+            Full Stack Programming &amp; Development
+          </div>
+
+          <div class="learning-card-desc">
+            Applications, websites and software development.
+          </div>
+
+          <div class="learning-card-meta">
+            Infinity School
+          </div>
+
+          <span class="li-badge">
+            Google &amp; Microsoft Partner
+          </span>
+        </div>
+     
+
+        <div class="learning-card learning-card-featured">
+
+          <div class="learning-card-title">
+            Google Project Management Professional Certificate
+          </div>
+
+          <div class="learning-card-desc">
+           Project Foundations, Agile Project Management, Initiation,
+            Scheduling &amp; Budgeting, Execution and Capstone.
+          </div>
+
+          <div class="learning-card-meta">
+            Google · Coursera<br>
+            2023
+          </div>
+
+        </div>
+        
+
+
+        <div class="learning-card">
+
+          <div class="learning-card-title">
+            Agile Methodologies
+          </div>
+
+          <div class="learning-card-meta">
+            Escola DNC · 7h<br>
+            Dec 2022
+          </div>
+
+        </div>
+
+          <div class="learning-card">
+
+          <div class="learning-card-title">
+            Defensive Cybersecurity Analyst
+          </div>
+
+          <div class="learning-card-meta">
+            XP Educação · 148h<br>
+            May – Jul 2025
+          </div>
+
+        </div>
+
+
+        <div class="learning-card learning-card-featured">
+
+          <div class="learning-card-title">
+            Offensive Cybersecurity Analyst
+          </div>
+
+          <div class="learning-card-meta">
+            XP Educação · 148h<br>
+            Aug – Oct 2025
+          </div>
+
+          <span class="li-badge">
+            Top Performance
+          </span>
+
+        </div>
+
+      <div class="learning-card learning-card-featured">
+
+          <div class="learning-card-title">
+            Business for All Program
+          </div>
+
+          <div class="learning-card-desc">
+            Finance, business case development, marketing,
+            performance measurement, negotiation and customer focus.
+          </div>
+
+          <div class="learning-card-meta">
+            Santander Open Academy × Harvard Business Publishing<br>
+            Nov 2024
+          </div>
+
+        </div>
+
+
+        <div class="learning-card">
+
+          <div class="learning-card-title">
+            Metrics, KPI & Analytics
+          </div>
+
+          <div class="learning-card-meta">
+            Escola DNC · 5h<br>
+            May 2023
+          </div>
+
+        </div>       
     </div>
+
+
+   
 
   </div>
 
-  <div class="education-extra reveal" style="transition-delay:0.25s">
-    <div class="education-extra-title">Continuous Learning</div>
-    <p class="learning-note">A running list of the courses, bootcamps and certifications behind the skills above — grouped by focus area, with hours and completion dates where the certificate confirms them.</p>
-
-    <div class="learning-category">
-      <div class="learning-category-title">Product, Business &amp; Development</div>
-
-      <div class="learning-item">
-        <div><span class="li-name">Product Management Full Stack</span><span class="li-desc">8 modules: Product Discovery, Growth, UX/UI Prototyping, Product Analytics, MVP Development, Agile Methodologies, Front-End Development, Project Presentation &amp; Pitch.</span></div>
-        <div class="li-meta">Escola DNC · 420h<br>Aug 2022 – Jun 2023<br><span class="li-badge">Honor &amp; Excellence</span></div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">UX &amp; UI for Prototype Design</span></div>
-        <div class="li-meta">Escola DNC · 25h<br>Feb 2023</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Product Discovery</span></div>
-        <div class="li-meta">Escola DNC · 24h<br>Dec 2022</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">MVP Development</span></div>
-        <div class="li-meta">Escola DNC · 22h<br>Jun 2023</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Product Growth</span></div>
-        <div class="li-meta">Escola DNC · 11h<br>Feb 2023</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Front-End Development</span></div>
-        <div class="li-meta">Escola DNC · 14h<br>Oct 2022</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Agile Methodologies</span></div>
-        <div class="li-meta">Escola DNC · 7h<br>Dec 2022</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Project Presentation &amp; Pitch</span></div>
-        <div class="li-meta">Escola DNC · 6h<br>May 2023</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Product Analytics</span></div>
-        <div class="li-meta">Escola DNC · 5h<br>May 2023</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Google Project Management Professional Certificate</span><span class="li-desc">6-course specialization — Foundations, Agile PM, Initiation, Scheduling &amp; Budgeting, Execution, Capstone.</span></div>
-        <div class="li-meta">Google, via Coursera<br>2023</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Full Stack Programming &amp; Development</span><span class="li-desc">Apps, websites and programs — international certificate.</span></div>
-        <div class="li-meta">Infinity School<br><span class="li-badge">Google &amp; Microsoft Partner</span></div>
-      </div>
-    </div>
-
-    <div class="learning-category">
-      <div class="learning-category-title">Security &amp; Risk</div>
-      <div class="learning-item">
-        <div><span class="li-name">Offensive Cybersecurity Analyst</span></div>
-        <div class="li-meta">XP Educação · 148h<br>Aug – Oct 2025<br><span class="li-badge">Top Performance</span></div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Bootcamp — Defensive Cybersecurity Analyst</span></div>
-        <div class="li-meta">XP Educação · 148h<br>May – Jul 2025</div>
-      </div>
-    </div>
-
-    <div class="learning-category">
-      <div class="learning-category-title">Leadership &amp; Business (Harvard ManageMentor)</div>
-      <div class="learning-item">
-        <div><span class="li-name">Negotiating</span></div>
-        <div class="li-meta">Harvard ManageMentor<br>Sep 2024</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Performance Measurement</span></div>
-        <div class="li-meta">Harvard ManageMentor<br>Sep 2024</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Customer Focus</span></div>
-        <div class="li-meta">Harvard ManageMentor<br>Sep 2024</div>
-      </div>
-      <div class="learning-item">
-        <div><span class="li-name">Business for All Program</span></div>
-        <div class="li-meta">Santander Open Academy × Harvard Business Publishing<br>Nov 2024</div>
-      </div>
-    </div>
-
-    <div class="learning-category">
-      <div class="learning-category-title">Also in progress / on file</div>
-      <p class="learning-note" style="margin-bottom:0.8rem;">Seen in my certificate archive, not yet verified with full course records — listed honestly without invented hours or dates.</p>
-      <div class="learning-unconfirmed">
-        <span class="skill-tag">Finance Essentials</span>
-        <span class="skill-tag">Marketing Essentials</span>
-        <span class="skill-tag">Business Case Development</span>
-        <span class="skill-tag">Business Analysis</span>
-        <span class="skill-tag">NoSQL Databases</span>
-        <span class="skill-tag">Risk Management</span>
-        <span class="skill-tag">Information Security Management</span>
-        <span class="skill-tag">IoT with Arduino</span>
-        <span class="skill-tag">Git &amp; GitHub</span>
-        <span class="skill-tag">Lean Six Sigma</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Women in Tech — Community</span>
-      </div>
-    </div>
-
-    <div class="learning-category" style="margin-bottom:0;">
-      <div class="learning-category-title">Languages</div>
-      <div class="learning-unconfirmed">
-        <span class="skill-tag">Portuguese — Native</span>
-        <span class="skill-tag">English — Fluent</span>
-        <span class="skill-tag">Spanish — Professional</span>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- CONTACT -->
@@ -1882,25 +1953,11 @@
             <div style="font-size:0.78rem; opacity:0.6;">+55 71 98111-7882</div>
           </div>
         </a>
-        <a href="https://tinyurl.com/LuBabani" target="_blank" class="contact-link">
-          <div class="cl-icon">◈</div>
-          <div>
-            <div style="font-weight:500; margin-bottom:0.2rem;">Full Portfolio (Notion)</div>
-            <div style="font-size:0.78rem; opacity:0.6;">tinyurl.com/LuBabani</div>
-          </div>
+        
         </a>
       </div>
     </div>
-    <form class="contact-form" onsubmit="handleFormSubmit(event)">
-      <div class="form-row">
-        <input type="text" id="f-name" placeholder="Your Name" required>
-        <input type="email" id="f-email" placeholder="Your Email" required>
-      </div>
-      <input type="text" id="f-subject" placeholder="Subject / Company">
-      <textarea id="f-message" placeholder="Your message..." required></textarea>
-      <p class="form-note">This will open your default email client.</p>
-      <button type="submit" class="btn-primary" style="align-self:flex-start;">Send Message →</button>
-    </form>
+  
   </div>
 </section>
 
@@ -2044,18 +2101,6 @@ function calcImpact() {
 document.querySelectorAll('.gold-range').forEach(s => s.addEventListener('input', calcImpact));
 calcImpact();
 
-/* ── CONTACT FORM ── */
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const name    = document.getElementById('f-name').value;
-  const email   = document.getElementById('f-email').value;
-  const subject = document.getElementById('f-subject').value || 'Portfolio Inquiry';
-  const message = document.getElementById('f-message').value;
-  const body = encodeURIComponent(
-    'Hi Lu,\n\nMy name is ' + name + '.\n\n' + message + '\n\nBest regards,\n' + name + '\n' + email
-  );
-  window.location.href = 'mailto:lucilandia.babani@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
-}
 
 /* ── PROJECT DETAIL MODAL ── */
 const projectDetails = {
