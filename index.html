@@ -1134,7 +1134,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#impact">Impact</a></li>
+    <li><a href="#impact">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1967,8 +1967,8 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo">Lu Babani</div>
-      <p class="footer-tagline">Senior Technology Program Manager building smarter, more connected systems — across borders, industries and teams.</p>
+      <div class="footer-logo">Lucilandia Babani</div>
+      <p class="footer-tagline">Leading teams across borders, delivering smarter and more connected solutions.</p>
     </div>
     <div>
       <div class="footer-col-title">Explore</div>
@@ -2064,48 +2064,7 @@ document.querySelectorAll('.gold-range').forEach(s => {
   s.addEventListener('input', () => updateSlider(s));
 });
 
-/* ── IMPACT CALCULATOR ── */
-function fmt(n) {
-  if(n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
-  if(n >= 1000) return '$' + Math.round(n/1000) + 'K';
-  return n;
-}
-function calcImpact() {
-  // The interactive calculator was removed from the HTML, so these controls
-  // may not exist. Exit safely instead of stopping the rest of the page JS.
-  const requiredIds = ['sl-team','sl-vel','sl-dec','sl-int','sl-cost','lbl-team','lbl-vel','lbl-dec','lbl-int','lbl-cost','r-vel','r-dec','r-cost','r-int'];
-  if (requiredIds.some(id => !document.getElementById(id))) return;
 
-  const team = +document.getElementById('sl-team').value;
-  const vel  = +document.getElementById('sl-vel').value;
-  const dec  = +document.getElementById('sl-dec').value;
-  const intg = +document.getElementById('sl-int').value;
-  const cost = +document.getElementById('sl-cost').value;
-
-  document.getElementById('lbl-team').textContent = team + ' engineers';
-  document.getElementById('lbl-vel').textContent  = vel + ' pts';
-  document.getElementById('lbl-dec').textContent  = dec + ' days';
-  document.getElementById('lbl-int').textContent  = intg;
-  document.getElementById('lbl-cost').textContent = '$' + (cost/1000).toFixed(0) + 'K';
-
-  // Velocity: avg 60% improvement
-  const velGain = Math.round(vel * 0.60);
-  document.getElementById('r-vel').textContent = '+' + velGain + ' pts/sprint';
-
-  // Decision: 70% faster
-  const decSaved = (dec * 0.70).toFixed(1);
-  document.getElementById('r-dec').textContent = decSaved + ' days saved';
-
-  // Cost: ~6% workforce efficiency + 18% throughput equivalent
-  const costSaving = Math.round(team * cost * 0.048);
-  document.getElementById('r-cost').textContent = fmt(costSaving);
-
-  // Integrations: ~70% of integrations at risk, resolve 65%
-  const blocked = Math.round(intg * 0.70 * 0.65);
-  document.getElementById('r-int').textContent = '~' + blocked + ' blockers prevented';
-}
-document.querySelectorAll('.gold-range').forEach(s => s.addEventListener('input', calcImpact));
-calcImpact();
 
 
 /* ── PROJECT DETAIL MODAL ── */
